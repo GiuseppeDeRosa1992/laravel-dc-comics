@@ -51,12 +51,19 @@ Questo git-template fornisce lo scaffold di una web application realizzata con L
 
 # lancia php make:seeder NomeTableSeeder
 
-# lancia php makartisan db:seed --class=NomeTableSeeder per mettere nel database i dati che genero tramite seeder
+# lancia php artisan db:seed --class=NomeTableSeeder per mettere nel database i dati che genero tramite seeder
 
 # lancia da termianle php artisan make:controller Guest/PageController dove mettere i dati che prendo dai database richiamando la classe oppure php artisan make:controller --resource SingolareController
 
 
 
-
-
 # lancia php artisan migrate:reset per resettare le migrate (se ci sono dati dentro stai attento a questo comando) 
+
+
+DOCUMENTAZIONE
+
+# FAKER 
+https://fakerphp.org/
+
+# DATABASE COLUMN TYPE
+https://laravel.com/docs/10.x/migrations#available-column-types
