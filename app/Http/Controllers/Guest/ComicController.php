@@ -78,7 +78,6 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        $comic = new Comic();
         $comic->title = $data['title'];
         $comic->description = $data['description'];
         $comic->path_img = $data['path_img'];
