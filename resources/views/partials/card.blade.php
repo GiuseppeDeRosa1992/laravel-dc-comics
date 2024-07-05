@@ -10,6 +10,8 @@
 						<h5 class="card-title"><b>Titolo:</b> {{ $fumetto->title }}</h5>
 					</div>
 					<a href="{{ route('comics.show', $fumetto->id) }}" class="btn btn-outline-primary my-3">Clicca per Dettagli</a>
+					<a href="{{ route('comics.edit', $fumetto->id) }}" class="btn btn-outline-primary my-3">Modifica Fumetto</a>
+
 				</div>
 			</div>
 		@endforeach
