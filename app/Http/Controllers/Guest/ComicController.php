@@ -33,7 +33,19 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        return "Funzina i dati sono arrivati";
+        //recupero i dati passati dal form e li salvo in una variabile
+        $comic = $request->all();
+
+        //creo un nuovo comic da passare al database tramite i dati che mi arrivano dal form in create.blade.php
+        $newComic = new Comic();
+        $newComic->title = $comic['title'];
+        $newComic->description = $comic['description'];
+        $newComic->path_img = $comic['path_img'];
+        $newComic->price = $comic['price'];
+        $newComic->sale_date = $comic['sale_date'];
+        //salvo il dato del form nel database
+        $newComic->save();
+        return redirect()->route('comics.show', $newComic->id);
     }
 
     /**

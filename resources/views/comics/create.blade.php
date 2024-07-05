@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container">
-		<form method="POST" action="{{ route('comics.index') }}" class="row g-3">
+		<form method="POST" action="{{ route('comics.store') }}" class="row g-3">
 			@csrf
 			<div class="col-md-4">
 				<label for="validationServer01" class="form-label">Titolo Fumetto</label>
