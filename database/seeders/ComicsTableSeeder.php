@@ -23,5 +23,19 @@ class ComicsTableSeeder extends Seeder
             $newComic->sale_date = $faker->dateTime('january 1, 2018');
             $newComic->save();
         }
+
+        /**************** BONUS ******************/
+        // $data = config('data');
+        // $fumetto = $data["list"];
+
+        // for ($i = 0; $i < count($fumetto); $i++) {
+        //     $newComic = new Comic();
+        //     $newComic->title = $fumetto[$i]['title'];
+        //     $newComic->description = $fumetto[$i]['description'];
+        //     $newComic->path_img = $fumetto[$i]['price'];
+        //     $newComic->price = $fumetto[$i]['sale_date'];
+        //     $newComic->sale_date = $fumetto[$i]['id'];
+        //     $newComic->save();
+        // }
     }
 }
