@@ -4,7 +4,9 @@
 @section('content')
 	<div class="container">
 		<h2 class="p-2 text-center">Modifica il Fumetto: {{ $comic->title }}</h2>
-		<form method="POST" action="" class="row g-3">
+		<form method="POST" action="{{ route('comics.update', $comic->id) }}" class="row g-3">
+			{{-- VISTO CHE NEL FORM SI POSSONO ACCETTARE SOLO POST E GET METTIAMO POST NEL FORM E POI USO IL METHODS CHE MI RICHIAMA PUT CHE SERVEAD UPDATE PER AGGIORNARE IL DATABASE --}}
+			@method('PUT')
 			@csrf
 			<div class="col-md-4">
 				<label for="validationServer01" class="form-label">Titolo Fumetto</label>
