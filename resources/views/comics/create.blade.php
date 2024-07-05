@@ -2,7 +2,8 @@
 
 @section('content')
 	<div class="container">
-		<form class="row g-3">
+		<form method="POST" action="{{ route('comics.index') }}" class="row g-3">
+			@csrf
 			<div class="col-md-4">
 				<label for="validationServer01" class="form-label">Titolo Fumetto</label>
 				<input type="text" class="form-control" id="validationServer01" name="title" required>
@@ -18,7 +19,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<label for="validationServer01" class="form-label">Titolo Fumetto</label>
+				<label for="validationServer01" class="form-label">URL Immagine</label>
 				<input type="text" class="form-control" id="validationServer01" name="path_img" required>
 				<div class="valid-feedback">
 					Campo Riempito Perfettamente

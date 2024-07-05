@@ -33,7 +33,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "Funzina i dati sono arrivati";
     }
 
     /**
