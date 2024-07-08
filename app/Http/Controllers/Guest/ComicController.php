@@ -33,19 +33,38 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //recupero i dati passati dal form e li salvo in una variabile
-        $comic = $request->all();
 
-        //creo un nuovo comic da passare al database tramite i dati che mi arrivano dal form in create.blade.php
+        //CON VALIDATE E FILL DALLA CLASSE COMIC
+        $comic = $request->validate([
+            "title" => "required",
+            "description" => "required",
+            "path_img" => "required",
+            "price" => "required",
+            "sale_date" => "required",
+        ]);
+
+        //CREO UN NEW COMIC
         $newComic = new Comic();
-        $newComic->title = $comic['title'];
-        $newComic->description = $comic['description'];
-        $newComic->path_img = $comic['path_img'];
-        $newComic->price = $comic['price'];
-        $newComic->sale_date = $comic['sale_date'];
-        //salvo il dato del form nel database
+        //FACCIO IL FILL DI COMIC CHE HA TUTTE LE PROPRIETà E LE PASSO A NEW COMIC
+        $newComic->fill($comic);
+        //SALVO SUL DATABASE I DATI DI NEWCOMIC
         $newComic->save();
-        return redirect()->route('comics.show', $newComic->id);
+        return redirect()->route('comics.show', $newComic);
+
+
+        // //recupero i dati passati dal form e li salvo in una variabile
+        // $comic = $request->all();
+
+        // //creo un nuovo comic da passare al database tramite i dati che mi arrivano dal form in create.blade.php
+        // $newComic = new Comic();
+        // $newComic->title = $comic['title'];
+        // $newComic->description = $comic['description'];
+        // $newComic->path_img = $comic['path_img'];
+        // $newComic->price = $comic['price'];
+        // $newComic->sale_date = $comic['sale_date'];
+        // //salvo il dato del form nel database
+        // $newComic->save();
+        // return redirect()->route('comics.show', $newComic->id);
     }
 
     /**
