@@ -35,8 +35,8 @@
 				<label for="validationServerUsername" class="form-label">Prezzo</label>
 				<div class="input-group has-validation">
 					<input type="number" class="form-control" id="validationServerUsername"
-						aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" name="price" value="{{ $comic->price }}"
-						required>
+						aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" name="price" step="0,01"
+						value="{{ $comic->price }}" required>
 					<span class="input-group-text" id="inputGroupPrepend3">€</span>
 					<div id="validationServerUsernameFeedback" class="invalid-feedback">
 						Riempi il Campo.

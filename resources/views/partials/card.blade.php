@@ -11,7 +11,14 @@
 					</div>
 					<a href="{{ route('comics.show', $fumetto->id) }}" class="btn btn-outline-primary my-3">Clicca per Dettagli</a>
 					<a href="{{ route('comics.edit', $fumetto->id) }}" class="btn btn-outline-primary my-3">Modifica Fumetto</a>
-
+					{{-- CREO FORM PER CANCELLARE UN FUMETTO DAL DATABASE GLI DO LA ROTTA DESTROY E IL METODO POST POI SOTTO LO CAMBIO NEL METODO DELETE --}}
+					<form method="POST" action="{{ route('comics.destroy', $fumetto->id) }}">
+						@csrf
+						{{-- CREO METODO DELETE PER CANCELLARE DAL DATABASE UN FUMETTO --}}
+						@method('DELETE')
+						<button type="submit" href="" class="btn btn-outline-danger my-3">Elimina
+							Fumetto</button>
+					</form>
 				</div>
 			</div>
 		@endforeach
