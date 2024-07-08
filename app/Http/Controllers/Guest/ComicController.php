@@ -35,7 +35,7 @@ class ComicController extends Controller
     {
 
         //CON VALIDATE E FILL DALLA CLASSE COMIC
-        $comic = $request->validate([
+        $data = $request->validate([
             "title" => "required",
             "description" => "required",
             "path_img" => "required",
@@ -46,7 +46,7 @@ class ComicController extends Controller
         //CREO UN NEW COMIC
         $newComic = new Comic();
         //FACCIO IL FILL DI COMIC CHE HA TUTTE LE PROPRIETà E LE PASSO A NEW COMIC
-        $newComic->fill($comic);
+        $newComic->fill($data);
         //SALVO SUL DATABASE I DATI DI NEWCOMIC
         $newComic->save();
         return redirect()->route('comics.show', $newComic);
@@ -95,16 +95,33 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $data = $request->all();
 
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->path_img = $data['path_img'];
-        $comic->price = $data['price'];
-        $comic->sale_date = $data['sale_date'];
-        //salvo il dato del form nel database
-        $comic->save();
-        return redirect()->route('comics.show', $comic->id);
+        //CON UPDATE E VALIDATE DALLA CLASSE COMIC METTO IL REQUEST DENTRO LA VARIABILE DATA
+        $data = $request->validate([
+            "title" => "required",
+            "description" => "required",
+            "path_img" => "required",
+            "price" => "required",
+            "sale_date" => "required",
+        ]);
+
+        $comic->update($data);
+        return redirect()->route('comics.show', $comic);
+
+
+
+
+        //SENZA FILL E VALIDATE
+        // $data = $request->all();
+
+        // $comic->title = $data['title'];
+        // $comic->description = $data['description'];
+        // $comic->path_img = $data['path_img'];
+        // $comic->price = $data['price'];
+        // $comic->sale_date = $data['sale_date'];
+        // //salvo il dato del form nel database
+        // $comic->save();
+        // return redirect()->route('comics.show', $comic->id);
     }
 
     /**
